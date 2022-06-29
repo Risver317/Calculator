@@ -12,7 +12,7 @@ public class Main {
         String[] parts = input.split(" ");
         List<String> roman = Arrays.asList ("I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X");
         if (parts.length != 3) {
-            throw new Exception("‘ормат математической операции не удовлетвор€ет заданию - два операнда и один оператор");
+            throw new Exception(" ");
         }
         int operand1 = 0;
         int operand2 = 0;
@@ -21,7 +21,7 @@ public class Main {
 
             operand1 = Integer.parseInt(parts[0]);
             operand2 = Integer.parseInt(parts[2]);
-            if (operand1 < 1 || operand1 > 10 || operand2 < 1 || operand2 > 10){
+            if (operand1 < 1 || operand1 > 10 || operand2 < 0 || operand2 > 10){
                 throw new Exception(" ");
             }
         } catch (Exception e) {
@@ -30,7 +30,7 @@ public class Main {
                 operand2 = roman.indexOf(parts[2]) + 1;
                 isRoman = true;
                 } else {
-                throw new Exception("¬вел не правильные числа");
+                throw new Exception(" ");
             }
 
             }
@@ -40,11 +40,11 @@ public class Main {
             case ("-") -> operand1 - operand2;
             case ("*") -> operand1 * operand2;
             case ("/") -> operand1 / operand2;
-            default -> throw new Exception("¬вели не корректный знак");
+            default -> throw new Exception(" ");
         };
         if (isRoman){
             if(result < 1){
-                throw new Exception("B римской системе нет отрицательных чисел");
+                throw new Exception(" ");
             }
             return RomanNumber.toRoman(result);
         }
